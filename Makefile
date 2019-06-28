@@ -1,2 +1,3 @@
 test:
-	docker run --rm -it -v `pwd`:/tmp python:3.6-stretch python3 /tmp/test.py
+	docker build . -t python36
+	docker run --rm -it -v `pwd`:/usr/src python36 bash
