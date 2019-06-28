@@ -24,9 +24,9 @@ def error_task(param1, param2):
 
 if __name__ == '__main__':
     with mp.Pool(2) as pool:
-        result = pool.starmap(task, [['1', '2'], ['3', '4']])
-        logger.debug(result)
+        result = pool.starmap_async(task, [['1', '2'], ['3', '4']])
+        logger.debug(result.get())
 
     with mp.Pool(2) as pool:
-        result = pool.starmap(error_task, [['5', '6'], ['7', '8']])
-        logger.debug(result)
+        result = pool.starmap_async(error_task, [['5', '6'], ['7', '8']])
+        logger.debug(result.get())
